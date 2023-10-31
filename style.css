@@ -1,0 +1,178 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  }
+  
+  :root {
+    font-size: 62.5%; /* 10px */
+    --ff-primary: 'Poppins', sans-serif;
+    --text-color: #303030;
+
+    --hue: 194;
+    --primary-color: hsl(var(--hue), 100%, 63%)
+  }
+
+  body {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background-color: rgb(250, 254, 255);
+  }
+
+  /*Quando boto * e para tudo dentro no caso do body, entao todos os seletores dentro do body*/
+  body * {
+    font-family: var(--ff-primary);
+  }
+
+ 
+
+  /*Aqui crio uma class para sumir com alguma coisa do site, da tela. mas mesmo assim ela ainda vai ter sensibilidade, ou seja fica visivel ao sistema*/
+  .sr-only {
+    /*Aqui a baixo fica toda a configurcao, para sumir com alguma class, mas mesmo assim que fique visivel para o sistema, entao tem asessibilidade*/
+    position: absolute; /*esse deixa um sobre o outro */
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden; /* Aqui eu sumo com a class, nesse caso aqui overflow sigifica que e um tranbordamento da caixa, entao ele esconde atrais*/
+    clip: rect(0, 0, 0, 0,); /*aqui crio um retangulo, como que nao exite pois esta em (0, 0, 0, 0,), que nao exite, forcando a caixa enexistente, fazendo ela nao existir*/
+    white-space: nowrap; /* linha escrita sem quebra*/
+    border-width: 0; /* deixa a caixa sem borda*/
+
+  }
+
+  
+  /* Aqui as configuracoes do site, tamanho da caixa que o site vai ter dentro da pagina, espacamento entre as laterais*/
+  #app {
+    padding: 2rem; /* Aqui voce deixa o conteudo sem pegas nas bordas, nesse caso quando vc dimuia atela ao maximo ele nao colar na tela das aterais*/
+    max-width: 50rem; /* Vou definir o tamnho da caixa, nesse caso o tamnho que o site vai ter maximo */
+    margin: 0 auto; /* Aqui deixa mesmo ao centro alinhando as margem da laterais, espaco automatico nas laterais*/
+  }
+
+  header {
+    display: flex;
+    align-items: center; /* Aqui ele deixa mesmo ao centro, alinahmento ao centro do seu echo. */ 
+    justify-content: space-between;
+
+    margin: 2.5rem 0; /*cima e embaixo 2.5 rem e nas latesras 0 igual no caso*/
+  }
+
+  header h1 {
+    font-size: 2rem;
+    text-transform: uppercase; /* a letras fica em maisculo */ 
+
+  }
+
+  .search {
+    display: flex;
+    align-items: center;
+  }
+
+  .search input {
+    height: 3.2rem;
+    border: 1px solid #ccc;
+    border-radius: .4rem 0 0 .4rem; /*aqui fica so um lado com borda aredondada*/
+    padding: 0 .8rem; /* e para deixa dentro da caixa, o plahcerholder com espaco interno*/
+
+  }
+
+  .search button {
+    background-color: var(--primary-color);
+    border-radius: 0 .4rem .4rem 0;
+    height: 3.2rem; /*deixo o butao do tamanho da caixa input*/
+    border: none;
+    padding: 0 .3rem;
+    cursor: pointer;
+  }
+
+  .search button:hover {
+    filter: brightness(1.1);
+
+  }
+
+  table {
+    width: 100%;
+    /* quando faco tablea, que boto um bg no fundo, ela da um espaco do progrma mesmo, para tira e so:*/
+    border-collapse: collapse; /*entao ele junta a tabela deixando sem espaco, corringindo fazendo com que a cor de fundo pega em tudo*/
+    /* aqui voce colocando um sobreamento sobra a imagem ou qualquer coisa, entao o primeiro a sombra a direita, o segundo e sombra para baixo, o terceiro e a sombra como se fosse suave ou forte(uma borda funda ou leve) e o ultimo e para espalhar por todas as bordas em conjunto*/
+    box-shadow: 0 1rem 5rem -1rem rgba(0, 0, 0, 0.3);
+
+  }
+
+  table * {
+    font-size: 1.4rem;
+    color: var(--text-color);
+  }
+
+  /*quando faco th:first-child e para pega o primeiro filho */
+  table th:first-child {
+    border-top-left-radius: .4rem; /*aqui aplica aredodamento da primeira ponta, quer diser que pega o primeiro filho th:first-child e depois ele areondar so mente a primeira borda deixando as outras quadradas */
+  }
+
+  /*aqui aplica so na borda da direita, pega o ultimo filho th:last-child e aplica na borda da direita assim com esse dois so faz a aredondamento da borda inferior*/
+  table th:last-child {
+    border-top-right-radius: .4rem;
+  }
+
+  /*aqui pega as colunas que nao forem impares, e aplica a cor de fundo poderia fazer tr:nth-child(even) seria pegue todos os numeros pares e aplique*/
+  table tr {
+    background: #eee;
+  }
+
+  /*aqui pega todas as colunas inpares(odd) coloque a cor*/
+  table tr:nth-child(odd) {
+    background: #ddd;
+  }
+
+  table td {
+    padding: 1.5rem;
+    text-align: left;
+  }
+
+  table th {
+    background-color: var(--primary-color);
+    text-align: left;
+    font-weight: normal;
+    padding: 1.5rem; /*ele da um prenchimento interno, igual como no input deixando longe das bordas*/
+  }
+
+  td.user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  td.user img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover; /*para encaixa ao meio na caixa da imagem, como se fosse um rpechimento interno da imagem, mas com a pessoa na imagem*/
+    border-radius: 50%; /*deixa a borda com aredondamento da imagem*/
+
+  }
+
+  td.user a {
+    text-decoration: none;
+
+
+  }
+
+  td.user a p {
+    font-weight: bold;
+  }
+
+  td .remove {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+  }
+
+
+
+
+
+
+
